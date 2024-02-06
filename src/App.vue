@@ -6,6 +6,8 @@ import HelloWorld from './components/HelloWorld.vue'
   <router-view />
 </template>
 
-<style scoped>
-
+<style>
+#app{
+  height: 100%;
+}
 </style>
