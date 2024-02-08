@@ -3,7 +3,7 @@
 <template>
   <el-header>
     <div class="l-content">
-      <el-button size="small">
+      <el-button size="small" @click="handleCollapse">
         <el-icon :size="20">
           <Menu />
         </el-icon>
@@ -30,14 +30,23 @@
 
 
 <script>
+import {useStore} from "vuex"
 export default {
   setup(){
+    let store = useStore()
     const getImageSrc = (user)=>{
       return new URL(`../assets/images/${user}.png`,import.meta.url).href;
     }
-    return {
-      getImageSrc
+
+    let handleCollapse = () => {
+      store.commit("updateIsCollapse")
     }
+
+    return {
+      getImageSrc,
+      handleCollapse
+    }
+
   }
 }
 </script>
